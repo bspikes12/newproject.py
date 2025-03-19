@@ -1,0 +1,46 @@
+# Brittany Williams CIS261 Deck of Cards
+
+import random
+
+class Card:
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+
+    def __str__(self):
+        return f"{self.rank} of {self.suit}"
+
+
+class Deck:
+    def __init__(self):
+        ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+        suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+        self.deck = [Card(rank, suit) for suit in suits for rank in ranks]
+
+    def shuffle(self):
+        random.shuffle(self.deck)
+
+    def deal(self):
+        if len(self.deck) > 0:
+            return self.deck.pop()
+        else:
+            return "No cards left in the deck!"
+
+    def count(self):
+        return len(self.deck)
+
+
+# Example usage
+if __name__ == "__main__":
+    deck = Deck()
+    print("Deck created.")
+    print(f"Total cards in deck: {deck.count()}")
+    
+    deck.shuffle()
+    print("Deck shuffled.")
+    
+    print("Dealing 5 cards:")
+    for _ in range(5):
+        print(deck.deal())
+    
+    print(f"Cards left in deck: {deck.count()}")
