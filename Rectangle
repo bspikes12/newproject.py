@@ -1,0 +1,32 @@
+# Brittany Williams CIS261 Rectangle
+
+class Rectangle:
+    def __init__(self, height, width):
+        self.height = height
+        self.width = width
+
+    def calculate_perimeter(self):
+        return 2 * (self.height + self.width)
+
+    def calculate_area(self):
+        return self.height * self.width
+
+    def __str__(self):
+        return f"Rectangle: Height = {self.height}, Width = {self.width}"
+
+
+# Example usage
+if __name__ == "__main__":
+    print("Welcome to the Rectangle Program!")
+    
+    try:
+        height = float(input("Enter the height of the rectangle: "))
+        width = float(input("Enter the width of the rectangle: "))
+        
+        rectangle = Rectangle(height, width)
+        print(rectangle)
+        
+        print(f"Perimeter of the rectangle: {rectangle.calculate_perimeter()}")
+        print(f"Area of the rectangle: {rectangle.calculate_area()}")
+    except ValueError:
+        print("Invalid input. Please enter numeric values for height and width.")
